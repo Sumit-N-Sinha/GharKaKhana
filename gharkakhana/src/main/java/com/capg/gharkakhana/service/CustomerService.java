@@ -15,6 +15,10 @@ public interface CustomerService {
 	Order createOrder(Order order);
 	List<Vendor> getByVendor();
 	List<FoodItems> getByFood();
+	List<FoodItems> getPriceAsc();
+	List<FoodItems> getPriceDsc();
+	List<FoodItems> findByFood(String name);
+	
 	
 
 }

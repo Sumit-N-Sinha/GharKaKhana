@@ -40,4 +40,20 @@ public class CustomerController {
 		
         return cs.getByFood();
     }
+	
+	@GetMapping("/getPriceAsc")
+	public List<FoodItems> getPriceAsc(){
+		
+        return cs.getPriceAsc();
+    }
+	@GetMapping("/getPriceDsc")
+	public List<FoodItems> getPriceDsc(){
+		
+        return cs.getPriceDsc();
+    }
+	@GetMapping("/findbyFood")
+	public List<FoodItems> findByFood(String name){
+		
+        return cs.findByFood(name);
+    }
 }

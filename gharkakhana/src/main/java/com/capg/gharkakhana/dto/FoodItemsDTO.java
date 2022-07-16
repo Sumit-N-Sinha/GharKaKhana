@@ -1,41 +1,62 @@
 package com.capg.gharkakhana.dto;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+
 
 public class FoodItemsDTO {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int foodId;
-    @NotBlank(message = "Name cannot be blank")
-    @Size(min=3,message= "Name should have atleast 3 characters")
-    @Pattern(regexp = "^[A-Za-z]+$", message = "Name should contain only alphabets")
-    private String name;
-    @NotNull(message = "Price cannot be zero")
-    @NotBlank(message = "Price cannot be blank")
-    private int price;
-    @NotBlank(message = "Phone number cannot be blank")
-    private int quantity;
-    
-    public FoodItemsDTO() {
-    	
-    }
-
-    public int getFoodId() {
-    	return foodId;
-    }
-	public String getName() {
-		return name;
+	private long foodId;
+//	@NotBlank(message = "foodIdentifier Required")
+//	@Size(min=3, max=10, message = "invalid foodIdentifier")
+//	@Column(updatable = false, unique = true)
+//	private String foodIdentifier;
+	@NotNull(message= "Foodname can't be null")
+	@NotBlank(message = "foodName is required")
+	private String foodName;
+	
+	@NotBlank(message = "foodDescription is required")
+	private String info;
+	@NotBlank(message = "Price can't be zero")
+	private int price;
+	@NotBlank(message = "Enter the quantity")
+	private int quantity;
+//	@NotBlank(message = "foodStatus is required")
+//	private String foodStatus;
+	
+//	private Date order_date;
+//	
+//	private Date created_At;
+//	private Date updated_At;
+	
+	
+	public FoodItemsDTO() {
+		
 	}
+	
+	public Long getFoodId() {
+		return foodId;
+	}
+	public void setFoodId(Long foodId) {
+		this.foodId = foodId;
+	}
+	
+//	public String getFoodIdentifier() {
+//		return foodIdentifier;
+//	}
+//
+//	public void setFoodIdentifier(String foodIdentifier) {
+//		this.foodIdentifier = foodIdentifier;
+//	}
 
-	public void setName(String name) {
-		this.name = name;
+	public String getFoodName() {
+		return foodName;
+	}
+	public void setFoodName(String foodName) {
+		this.foodName = foodName;
 	}
 
 	public int getPrice() {
@@ -53,4 +74,47 @@ public class FoodItemsDTO {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+
+	public String getInfo() {
+		return info;
+	}
+
+	public void setInfo(String info) {
+		this.info = info;
+	}
+	
+//	public String getFoodStatus() {
+//		return foodStatus;
+//	}
+//	public void setFoodStatus(String foodStatus) {
+//		this.foodStatus = foodStatus;
+//	}
+//	public Date getOrder_date() {
+//		return order_date;
+//	}
+//	public void setOrder_date(Date order_date) {
+//		this.order_date = order_date;
+//	}
+//	public Date getCreated_At() {
+//		return created_At;
+//	}
+//	public void setCreated_At(Date created_At) {
+//		this.created_At = created_At;
+//	}
+//	public Date getUpdated_At() {
+//		return updated_At;
+//	}
+//	public void setUpdated_At(Date updated_At) {
+//		this.updated_At = updated_At;
+//	}
+//	@PrePersist
+//	public void onCreate() {
+//		this.created_At = new Date();
+//		}
+//	
+//	@PreUpdate
+//	public void onUpdate() {
+//		this.updated_At = new Date();
+//	}
+	
 }

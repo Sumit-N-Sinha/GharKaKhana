@@ -1,9 +1,11 @@
 package com.capg.gharkakhana.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -18,7 +20,8 @@ public class Customer {
 	private int customerId;
 	private String cname,email,address;
 	private long phone;
-	
+	@OneToOne(cascade = CascadeType.ALL)
+	private Order order;
 	//Getters and Setters
 	
 	
@@ -48,6 +51,12 @@ public class Customer {
 	}
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	public Order getOrder() {
+		return order;
+	}
+	public void setOrder(Order order) {
+		this.order = order;
 	}
 
 }
