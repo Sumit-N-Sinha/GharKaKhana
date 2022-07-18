@@ -3,6 +3,7 @@ package com.capg.gharkakhana.service;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +12,10 @@ import org.springframework.stereotype.Service;
 import com.capg.gharkakhana.entity.FoodItems;
 import com.capg.gharkakhana.entity.Order;
 import com.capg.gharkakhana.entity.Vendor;
+import com.capg.gharkakhana.exception.FoodItemNotFoundException;
 import com.capg.gharkakhana.repository.FoodRepository;
 import com.capg.gharkakhana.repository.OrderRepository;
 import com.capg.gharkakhana.repository.VendorRepository;
-
 @Service
 public class CustomerServiceImpl implements CustomerService{
 
@@ -94,7 +95,13 @@ public class CustomerServiceImpl implements CustomerService{
 	@Override
 	public List<FoodItems> findByFood(String name) {
 		// TODO Auto-generated method stub
-		return foodRepository.findByFoodName(name);
+		List<FoodItems> foodItem= foodRepository.findByFoodName(name);
+		if(!foodItem.isEmpty())
+			foodRepository.findByFoodName(name);
+		else
+			throw new FoodItemNotFoundException("Search Operation failed \n No food Found with id: "+name);
+		return foodItem;
+	
 	}
 
 	

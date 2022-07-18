@@ -12,7 +12,7 @@ import com.capg.gharkakhana.entity.FoodItems;
 @Repository
 public interface FoodRepository extends JpaRepository<FoodItems, Integer> {
 
-	@Query(value="select * from food_items f where f.food_name=food_name",nativeQuery = true)
+	@Query(value="select * from food_items f where f.food_name=name",nativeQuery = true)
 	List<FoodItems> findByFoodName(@Param("name") String name);
 
 }
