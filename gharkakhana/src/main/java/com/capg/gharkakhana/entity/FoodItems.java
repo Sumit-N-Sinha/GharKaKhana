@@ -15,7 +15,7 @@ public class FoodItems {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int foodId;
-	//private String foodIdentifier;
+	private String foodIdentifier;
 	private String foodName;
 	private String info;
 	private double price;
@@ -42,13 +42,13 @@ public class FoodItems {
 		return foodId;
 	}
 	
-//	public String getFoodIdentifier() {
-//		return foodIdentifier;
-//	}
-//
-//	public void setFoodIdentifier(String foodIdentifier) {
-//		this.foodIdentifier = foodIdentifier;
-//	}
+	public String getFoodIdentifier() {
+		return foodIdentifier;
+	}
+
+	public void setFoodIdentifier(String foodIdentifier) {
+		this.foodIdentifier = foodIdentifier;
+	}
 
 	public String getFoodName() {
 		return foodName;

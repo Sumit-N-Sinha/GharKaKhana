@@ -15,4 +15,5 @@ public interface FoodRepository extends JpaRepository<FoodItems, Integer> {
 	@Query(value="select * from food_items f where f.food_name=name",nativeQuery = true)
 	List<FoodItems> findByFoodName(@Param("name") String name);
 
+	
 }

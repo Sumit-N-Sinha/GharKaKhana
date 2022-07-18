@@ -13,13 +13,13 @@ import javax.persistence.Table;
 public class Admin {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	   private int aid;
-	   private int oid;
-	   private int vid;
-	   private String orderDescription;
-	   private int totalCost;
-	   @OneToMany()
-	   private List<Vendor> vendorList;
+	private int aid;
+	private int oid;
+	private int vid;
+	private String orderDescription;
+	private int totalCost;
+	@OneToMany()
+	private List<Vendor> vendorList;
 	public int getAid() {
 		return aid;
 	}
@@ -56,6 +56,6 @@ public class Admin {
 	public void setVendorList(List<Vendor> vendorList) {
 		this.vendorList = vendorList;
 	}
-	   
+
 
 }
